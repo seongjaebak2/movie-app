@@ -1,0 +1,88 @@
+.favorites-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0f0f0f, #000);
+  padding-top: 40px;
+}
+
+/* ✅ Header */
+.favorites-header {
+  margin-bottom: 36px;
+}
+
+.favorites-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.favorites-header svg {
+  color: #ff2d55;
+}
+
+.favorites-header p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ✅ Empty State */
+.favorites-empty {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  text-align: center;
+}
+
+.favorites-empty .empty-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: #ff2d55;
+  opacity: 0.7;
+}
+
+.favorites-empty h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.favorites-empty p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ✅ Fade Animation */
+.fade {
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .favorites-header h1 {
+    font-size: 24px;
+  }
+
+  .favorites-empty h3 {
+    font-size: 18px;
+  }
+
+  .favorites-empty .empty-icon {
+    font-size: 48px;
+  }
+}

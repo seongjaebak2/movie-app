@@ -1,0 +1,99 @@
+/* ---------------- Search Page ---------------- */
+.search-page {
+  min-height: 100vh;
+  background: #111; /* 전체 배경 통일 */
+  color: #fff;
+  font-family: "Cafe24Surround", sans-serif;
+  padding-bottom: 40px;
+}
+
+/* Header */
+.search-header {
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 0.95),
+    rgba(15, 15, 15, 0.9)
+  );
+  padding: 40px 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  backdrop-filter: blur(10px);
+}
+
+/* Title */
+.search-title {
+  margin-bottom: 32px;
+}
+
+.search-title h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.search-title span {
+  color: #ffcc00;
+}
+
+.search-title p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Search Empty */
+.search-empty {
+  padding: 80px 0;
+  text-align: center;
+  color: #ccc;
+}
+
+.search-empty h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.search-empty p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Grid */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+/* Fade Animation */
+.fade {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .search-title h2 {
+    font-size: 20px;
+  }
+
+  .search-header {
+    padding: 24px 0;
+  }
+
+  .grid {
+    gap: 12px;
+  }
+}

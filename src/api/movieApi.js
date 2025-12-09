@@ -1,30 +1,18 @@
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const BASE_URL = "https://api.themoviedb.org/3";
+import api from "./axios";
 
-export async function getPopularMovies(page = 1) {
-  const res = await fetch(
-    `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=ko-KR&page=${page}`
-  );
-  return res.json();
-}
+export const getPopularMovies = (page = 1) =>
+  api.get("/movie/popular", { params: { page } }).then((res) => res.data);
 
-export async function searchMovies(query) {
-  const res = await fetch(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&language=ko-KR&query=${query}`
-  );
-  return res.json();
-}
+export const searchMovies = (query) =>
+  api.get("/search/movie", { params: { query } }).then((res) => res.data);
 
-export async function getMovieDetail(id) {
-  const res = await fetch(
-    `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=ko-KR`
-  );
-  return res.json();
-}
+export const getMovieDetail = (id) =>
+  api.get(`/movie/${id}`).then((res) => res.data);
 
-export async function getMovieVideos(id) {
-  const res = await fetch(
-    `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=ko-KR`
-  );
-  return res.json();
-}
+export const getMovieVideos = (id) =>
+  api.get(`/movie/${id}/videos`).then((res) => res.data);
+
+export const getMovieRecommendations = async (id) => {
+  const res = await api.get(`/movie/${id}/recommendations`);
+  return res.data;
+};

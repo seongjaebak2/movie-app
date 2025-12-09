@@ -1,0 +1,51 @@
+.hero.skeleton {
+  height: 70vh;
+  background: #1a1a1a;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.skeleton {
+  background: linear-gradient(100deg, #2a2a2a 30%, #3a3a3a 50%, #2a2a2a 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton.badge {
+  width: 120px;
+  height: 28px;
+  margin-bottom: 16px;
+}
+
+.skeleton.title {
+  width: 360px;
+  height: 44px;
+  margin-bottom: 20px;
+}
+
+.skeleton.genres {
+  width: 280px;
+  height: 32px;
+  margin-bottom: 24px;
+}
+
+.skeleton.text {
+  width: 420px;
+  height: 80px;
+  margin-bottom: 28px;
+}
+
+.skeleton.button {
+  width: 160px;
+  height: 48px;
+  border-radius: 8px;
+}

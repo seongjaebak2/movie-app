@@ -1,14 +1,84 @@
+@font-face {
+  font-family: "Cafe24Surround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+    format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
 /* ===== Reset ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Cafe24Surround", sans-serif;
+}
+
+html {
+  font-size: 18px;
+  font-family: "Cafe24Surround", sans-serif;
 }
 
 body {
   background: #f4f4f4;
   color: #222;
+  font-size: 1.1rem;
+}
+
+p,
+span,
+li,
+a,
+button,
+input,
+textarea {
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.1rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+}
+h2 {
+  font-size: 1.9rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.3rem;
+}
+h5 {
+  font-size: 1.1rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+/* 헤딩 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cafe24Surround", sans-serif;
+  font-weight: normal;
+}
+
+/* 버튼 */
+button {
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 1.1rem;
+}
+
+/* 입력창 */
+input,
+textarea {
+  font-family: inherit;
+  font-size: 1.1rem;
 }
 
 /* ===== Layout ===== */
@@ -154,4 +224,55 @@ body {
   font-size: 28px;
   border: none;
   cursor: pointer;
+}
+
+/* Skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.skeleton {
+  pointer-events: none;
+}
+
+.skeleton .poster,
+.skeleton .title,
+.skeleton .rating {
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-size: 800px 104px;
+  animation: shimmer 1.2s infinite linear;
+}
+
+.skeleton .poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+}
+
+.skeleton .info {
+  padding: 8px 0;
+}
+
+.skeleton .title {
+  height: 16px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+}
+
+.skeleton .rating {
+  width: 50%;
+  height: 14px;
+  border-radius: 4px;
 }

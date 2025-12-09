@@ -1,19 +1,24 @@
+import { useEffect } from "react";
+import "./TrailerModal.css";
+
 export default function TrailerModal({ videoKey, onClose }) {
-  if (!videoKey) return null;
+  useEffect(() => {
+    const handleEsc = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <button className="close" onClick={onClose}>
-          ✕
-        </button>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <iframe
-          width="100%"
-          height="100%"
           src={`https://www.youtube.com/embed/${videoKey}`}
           title="Trailer"
           allowFullScreen
         />
+        <button className="close-btn" onClick={onClose}>
+          ✕
+        </button>
       </div>
     </div>
   );

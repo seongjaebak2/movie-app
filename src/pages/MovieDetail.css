@@ -1,0 +1,182 @@
+/* ---------------- Body & HTML ---------------- */
+html,
+body {
+  background-color: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- Hero Section ---------------- */
+.detail-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.detail-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.3)),
+    linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2));
+  z-index: 1;
+}
+
+.detail.container {
+  display: flex;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+  align-items: flex-start;
+}
+
+.detail-poster {
+  width: 220px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.detail-info {
+  max-width: 600px;
+}
+
+.detail-info h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.detail-info .overview {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.trailer-btn {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.trailer-btn:hover {
+  background: #e6e6e6;
+}
+
+/* ---------------- Related Movies ---------------- */
+.detail-related {
+  padding: 40px 0;
+  margin-bottom: 0;
+  background: #111;
+  color: #fff;
+}
+
+.detail-related .row-title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.row-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.row-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.row-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.no-related {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px; /* 충분한 여백 */
+  background: #111; /* 항상 어두운 배경 */
+  color: #ccc;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.no-related-icon {
+  margin-bottom: 20px;
+  color: #555; /* Hero 느낌과 맞춤 */
+  animation: bounce 1.5s infinite;
+}
+
+.no-related p {
+  font-size: 18px;
+  color: #aaa;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ---------------- Mobile ---------------- */
+@media (max-width: 768px) {
+  .detail-hero {
+    padding: 0 20px;
+    min-height: 50vh;
+    align-items: flex-end;
+  }
+
+  .detail.container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .detail-poster {
+    width: 160px;
+    margin-bottom: 20px;
+  }
+
+  .detail-info {
+    max-width: 100%;
+  }
+
+  .detail-info h1 {
+    font-size: 24px;
+  }
+
+  .detail-info p.overview {
+    font-size: 14px;
+  }
+
+  .trailer-btn {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .row-scroll {
+    gap: 12px;
+  }
+}
