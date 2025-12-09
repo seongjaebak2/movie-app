@@ -1,16 +1,62 @@
-# React + Vite
+- 소개
+  
+TMDB API를 활용한 영화 정보 서비스입니다.
+인기 영화 조회, 검색, 즐겨찾기, 영화 상세 및 트레일러 재생 기능을 제공합니다.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- 기술 스택
+  
+React (JavaScript)
 
-Currently, two official plugins are available:
+Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React Router v6
 
-## React Compiler
+TMDB API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Intersection Observer (Infinite Scroll)
 
-## Expanding the ESLint configuration
+LocalStorage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 주요 기능
+  
+인기 영화 무한 스크롤
+
+영화 검색
+
+즐겨찾기 관리
+
+영화 상세 페이지
+
+트레일러 모달 (YouTube 연동)
+
+로딩 / 에러 UX 처리
+
+- 폴더 구조
+  
+src/
+ ┣ api/
+ ┣ components/
+ ┣ pages/
+ ┣ hooks/
+ ┣ App.jsx
+ ┗ main.jsx
+
+- 구현 포인트
+  
+공통 로딩/에러 컴포넌트로 UX 개선
+
+IntersectionObserver를 활용한 무한 스크롤
+
+API 호출 로직 분리로 유지보수성 향상
+
+모달 UX로 사용자 이탈 최소화
+
+- 실행 방법
+  
+npm install
+npm run dev
+
+- 회고
+  
+실무에서 자주 사용하는 React 구조를 기반으로
+재사용성, 사용자 경험, 확장성을 고려해 구현했습니다.
