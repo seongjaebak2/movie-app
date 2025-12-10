@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = axios.create({
+const tmdbApi = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   params: {
     api_key: import.meta.env.VITE_TMDB_API_KEY,
@@ -8,7 +8,7 @@ const api = axios.create({
   },
 });
 
-api.interceptors.response.use(
+tmdbApi.interceptors.response.use(
   (res) => res,
   (err) => {
     console.error("API Error:", err);
@@ -16,4 +16,4 @@ api.interceptors.response.use(
   }
 );
 
-export default api;
+export default tmdbApi;

@@ -12,7 +12,7 @@ export default function SearchBar({ onSubmit, autoFocus = false }) {
     if (!q.trim()) return;
 
     if (onSubmit) {
-      onSubmit(q); // 부모 컴포넌트로 전달
+      onSubmit(q);
     } else {
       navigate(`/search?q=${encodeURIComponent(q)}`);
     }

@@ -2,6 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaSearch, FaHeart } from "react-icons/fa";
 import SearchBar from "./SearchBar";
+import { useAuth } from "../context/AuthContext";
+import LoginModal from "./LoginModal";
+import SignUpModal from "./SignUpModal";
 import "./Header.css";
 
 export default function Header({ favorites = [] }) {
@@ -9,6 +12,9 @@ export default function Header({ favorites = [] }) {
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
+  const { user, logout, loading } = useAuth();
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [signupOpen, setSignupOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +28,7 @@ export default function Header({ favorites = [] }) {
     setSearchOpen(false);
     if (query.trim()) navigate(`/search?q=${query}`);
   };
-
+  if (loading) return null;
   return (
     <>
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
@@ -42,13 +48,18 @@ export default function Header({ favorites = [] }) {
 
           <div className="header-right">
             {/* 즐겨찾기 아이콘 */}
-            <Link to="/favorites" className="fav-icon">
+            <Link
+              to={user ? "/favorites" : "#"}
+              className="fav-icon"
+              onClick={(e) => {
+                if (!user) {
+                  e.preventDefault();
+                  setLoginOpen(true);
+                }
+              }}
+            >
               <FaHeart />
-              {favorites.length > 0 && (
-                <span className="fav-count">{favorites.length}</span>
-              )}
             </Link>
-
             {/* 검색 아이콘 */}
             <button
               className="search-btn"
@@ -56,6 +67,22 @@ export default function Header({ favorites = [] }) {
             >
               <FaSearch />
             </button>
+            {/* 로그인 영역 */}
+            {user ? (
+              <div className="user-box">
+                <span className="user-email">{user.email}</span>
+                <button onClick={logout}>Logout</button>
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  setLoginOpen(true);
+                  setSignupOpen(false);
+                }}
+              >
+                Login
+              </button>
+            )}
 
             {/* 모바일 메뉴 버튼 */}
             <button className="menu-btn" onClick={() => setOpen(!open)}>
@@ -76,6 +103,26 @@ export default function Header({ favorites = [] }) {
             <SearchBar onSubmit={handleSearchSubmit} autoFocus />
           </div>
         </div>
+      )}
+
+      {loginOpen && (
+        <LoginModal
+          onClose={() => setLoginOpen(false)}
+          onSwitch={() => {
+            setLoginOpen(false);
+            setSignupOpen(true);
+          }}
+        />
+      )}
+
+      {signupOpen && (
+        <SignUpModal
+          onClose={() => setSignupOpen(false)}
+          onSwitch={() => {
+            setSignupOpen(false);
+            setLoginOpen(true);
+          }}
+        />
       )}
     </>
   );
