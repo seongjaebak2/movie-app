@@ -15,14 +15,14 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Cafe24Surround", sans-serif;
 }
 
 body {
   background: #f4f4f4;
   color: #222;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 p,
@@ -34,26 +34,26 @@ input,
 textarea {
   font-family: inherit;
   color: inherit;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 h1 {
-  font-size: 2.3rem;
+  font-size: 2rem;
 }
 h2 {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
 }
 h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 h4 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 h5 {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 h6 {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 /* 헤딩 */
